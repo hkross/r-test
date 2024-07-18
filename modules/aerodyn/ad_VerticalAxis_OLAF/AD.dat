@@ -47,25 +47,40 @@ True          FLookup            - Flag to indicate whether a lookup for f' will
           4   InCol_Cm           - The column in the airfoil tables that contains the pitching-moment coefficient; use zero if there is no Cm column (-)
           0   InCol_Cpmin        - The column in the airfoil tables that contains the Cpmin coefficient; use zero if there is no Cpmin column (-)
           1   NumAFfiles         - Number of airfoil files used (-)
-"Polars.dat"    AFNames            - Airfoil file names (NumAFfiles lines) (quoted strings)
+"Polars.dat"  AFNames            - Airfoil file names (NumAFfiles lines) (quoted strings)
 ======  Rotor/Blade Properties  =====================================================================
 True          UseBlCm            - Include aerodynamic pitching moment in calculations?  (flag)
-"AD_blade.dat"    ADBlFile(1)        - Name of file containing distributed aerodynamic properties for Blade #1 (-)
-"AD_blade.dat"    ADBlFile(2)        - Name of file containing distributed aerodynamic properties for Blade #2 (-) [unused if NumBl < 2]
-"AD_blade.dat"    ADBlFile(3)        - Name of file containing distributed aerodynamic properties for Blade #3 (-) [unused if NumBl < 3]
+"AD_blade.dat"  ADBlFile(1)      - Name of file containing distributed aerodynamic properties for Blade #1 (-)
+"AD_blade.dat"  ADBlFile(2)      - Name of file containing distributed aerodynamic properties for Blade #2 (-) [unused if NumBl < 2]
+"AD_blade.dat"  ADBlFile(3)      - Name of file containing distributed aerodynamic properties for Blade #3 (-) [unused if NumBl < 3]
+"AD_blade.dat"  ADBlFile(4)      - Name of file containing distributed aerodynamic properties for Blade #4 (-) [unused if NumBl < 4]
+"AD_blade.dat"  ADBlFile(5)      - Name of file containing distributed aerodynamic properties for Blade #5 (-) [unused if NumBl < 5]
+"AD_blade.dat"  ADBlFile(6)      - Name of file containing distributed aerodynamic properties for Blade #6 (-) [unused if NumBl < 6]
 ======  Hub Properties ============================================================================== [used only when Buoyancy=True]
           0   VolHub             - Hub volume (m^3)
           0   HubCenBx           - Hub center of buoyancy x direction offset (m)
 ======  Nacelle Properties ========================================================================== [used only when Buoyancy=True]
           0   VolNac             - Nacelle volume (m^3)
           0,          0,          0    NacCenB            - Position of nacelle center of buoyancy from yaw bearing in nacelle coordinates (m)
-======  Tail Fin Aerodynamics =======================================================================
+======  Tail Fin Aerodynamics ======================================================================= 
 False         TFinAero           - Calculate tail fin aerodynamics model (flag)
 "unused"      TFinFile           - Input file for tail fin aerodynamics [used only when TFinAero=True]
+======  Joint Properties ============================================================================ [optional section, included only when modeling joint drag for VAWTs]
+          0   NumJoints          - Number of joints defined (-) [used only when including joint drag in VAWT simulations]
+JtBldNum          JtLoc          JtArea          JtCd
+(-)               (-)            (m^2)           (-)
+3                 0.12           0.0003          1.15
+3                 0.97           0.0010          1.05
+4                 0.12           0.0003          1.15
+4                 0.97           0.0010          1.05
+5                 0.12           0.0003          1.15
+5                 0.97           0.0010          1.05
+6                 0.12           0.0003          1.15
+6                 0.97           0.0010          1.05
 ======  Tower Influence and Aerodynamics ============================================================ [used only when TwrPotent/=0, TwrShadow/=0, TwrAero=True, or Buoyancy=True]
           0   NumTwrNds         - Number of tower nodes used in the analysis  (-) [used only when TwrPotent/=0, TwrShadow/=0, TwrAero=True, or Buoyancy=True]
-TwrElev        TwrDiam        TwrCd          TwrTI           TwrCb  ! TwrTI used only when TwrShadow=2; TwrCb used only when Buoyancy=True
-(m)              (m)           (-)            (-)            (-)
+TwrElev        TwrDiam        TwrCd          TwrTI          TwrCb  ! TwrTI used only when TwrShadow=2; TwrCb used only when Buoyancy=True
+(m)            (m)            (-)            (-)            (-)
 ======  Outputs  ====================================================================================
 False         SumPrint            - Generate a summary file listing input options and interpolated properties to "<rootname>.AD.sum"? (flag)
           0   NBlOuts             - Number of blade node outputs [0 - 9] (-)
@@ -78,7 +93,7 @@ False         SumPrint            - Generate a summary file listing input option
 "RtVAvgyh"                 
 "RtVAvgzh"                 
 END of OutList section (the word "END" must appear in the first 3 columns of the last OutList line)
-====== Outputs for all blade stations (same ending as above for B1N1.... =========================== [optional section]
+====== Outputs for all blade stations (same ending as above for B1N1.... ============================ [optional section]
           2   BldNd_BladesOut     - Number of blades to output all node information at.  Up to number of blades on turbine. (-)
 "All"         BldNd_BlOutNd       - Future feature will allow selecting a portion of the nodes to output.  Not implemented yet. (-)
               OutList             - The next line(s) contains a list of output parameters.  See OutListParameters.xlsx for a listing of available output channels, (-)
@@ -86,4 +101,4 @@ END of OutList section (the word "END" must appear in the first 3 columns of the
 "Alpha"                    
 "Cl"                       
 END (the word "END" must appear in the first 3 columns of this last OutList line in the optional nodal output section)
-====================================================================================================
+=====================================================================================================
