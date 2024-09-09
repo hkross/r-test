@@ -48,10 +48,6 @@ default                SectAvgPsiFwd - Forward azimuth relative to blade where t
 1                      DMSTMod     - Type of momentum theory model (switch) {1=classic, 2=high load} [used only when Wake_Mod=4]
 0                      Nst         - Number of streamtubes [used only when Wake_Mod=4]
 "default"              DMSTRes     - Resolution of induction factor initial guess array [used only when Wake_Mod=4]
-======  Double Multiple Streamtube Theory Options  ================================================== [used only when Wake_Mod=4]
-1                      DMSTMod     - Type of momentum theory model (switch) {1=classic, 2=high load} [used only when Wake_Mod=4]
-0                      Nst         - Number of streamtubes [used only when Wake_Mod=4]
-"default"              DMSTRes     - Resolution of induction factor initial guess array [used only when Wake_Mod=4]
 ======  Unsteady Airfoil Aerodynamics Options  ====================================================
 False                  AoA34       - Sample the angle of attack (AoA) at the 3/4 chord or the AC point {default=True} [always used]
 0                      UA_Mod      - Unsteady Aero Model Switch (switch) {0=Quasi-steady (no UA), 2=B-L Gonzalez, 3=B-L Minnema/Pierce, 4=B-L HGM 4-states, 5=B-L HGM+vortex 5 states, 6=Oye, 7=Boeing-Vertol}
