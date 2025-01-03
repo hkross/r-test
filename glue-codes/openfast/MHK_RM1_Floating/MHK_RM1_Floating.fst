@@ -6,7 +6,10 @@ False         Echo            - Echo input data to <RootName>.ech (flag)
           6   TMax            - Total run time (s)
       0.003   DT              - Recommended module time step (s)
           2   InterpOrder     - Interpolation order for input/output time history (-) {1=linear, 2=quadratic}
-          5   NumCrctn        - Number of correction iterations (-) {0=explicit calculation, i.e., no corrections}
+          0   NumCrctn        - Number of correction iterations (-) {0=explicit calculation, i.e., no corrections}
+        0.0   RhoInf          - Numerical damping parameter for tight coupling generalized-alpha integrator (-) [0.0 to 1.0]
+       1e-4   ConvTol         - Convergence iteration error tolerance for tight coupling generalized alpha integrator (-)
+          6   MaxConvIter     - Maximum number of convergence iterations for tight coupling generalized alpha integrator (-)
       99999   DT_UJac         - Time between calls to get Jacobians (s)
     1000000   UJacSclFact     - Scaling factor used in Jacobians (-)
 ---------------------- FEATURE SWITCHES AND FLAGS ------------------------------
@@ -31,12 +34,12 @@ False         Echo            - Echo input data to <RootName>.ech (flag)
          50   WtrDpth         - Water depth (m)
           0   MSL2SWL         - Offset between still-water level and mean sea level (m) [positive upward]
 ---------------------- INPUT FILES ---------------------------------------------
-"MHK_RM1_Floating_ElastoDyn.dat"    EDFile          - Name of file containing ElastoDyn input parameters (quoted string)
+"MHK_RM1_Floating_ElastoDyn.dat"     EDFile          - Name of file containing ElastoDyn input parameters (quoted string)
 "unused"      BDBldFile(1)    - Name of file containing BeamDyn input parameters for blade 1 (quoted string)
 "unused"      BDBldFile(2)    - Name of file containing BeamDyn input parameters for blade 2 (quoted string)
 "unused"      BDBldFile(3)    - Name of file containing BeamDyn input parameters for blade 3 (quoted string)
 "MHK_RM1_Floating_InflowWind.dat"    InflowFile      - Name of file containing inflow wind input parameters (quoted string)
-"MHK_RM1_Floating_AeroDyn.dat"  AeroFile        - Name of file containing aerodynamic input parameters (quoted string)
+"MHK_RM1_Floating_AeroDyn.dat"       AeroFile        - Name of file containing aerodynamic input parameters (quoted string)
 "unused"      ServoFile       - Name of file containing control and electrical-drive input parameters (quoted string)
 "MHK_RM1_Floating_SeaState.dat"      SeaStFile       - Name of file containing sea state input parameters (quoted string)
 "MHK_RM1_Floating_HydroDyn.dat"      HydroFile       - Name of file containing hydrodynamic input parameters (quoted string)
@@ -49,9 +52,9 @@ True          SumPrint        - Print summary data to "<RootName>.sum" (flag)
       99999   ChkptTime       - Amount of time between creating checkpoint files for potential restart (s)
        0.03   DT_Out          - Time step for tabular output (s) (or "default")
           0   TStart          - Time to begin tabular output (s)
-          3   OutFileFmt      - Format for tabular (time-marching) output file (switch) {1: text file [<RootName>.out], 2: binary file [<RootName>.outb], 3: both 1 and 2, 4: uncompressed binary [<RootName>.outb, 5: both 1 and 4}
+          4   OutFileFmt      - Format for tabular (time-marching) output file (switch) {1: text file [<RootName>.out], 2: binary file [<RootName>.outb], 3: both 1 and 2, 4: uncompressed binary [<RootName>.outb, 5: both 1 and 4}
 True          TabDelim        - Use tab delimiters in text tabular output file? (flag) {uses spaces if false}
-"ES10.3E2"    OutFmt          - Format used for text tabular output, excluding the time channel.  Resulting field should be 10 characters. (quoted string)
+"G0"          OutFmt          - Format used for text tabular output, excluding the time channel.  Resulting field should be 10 characters. (quoted string)
 ---------------------- LINEARIZATION -------------------------------------------
 False         Linearize       - Linearization analysis (flag)
 False         CalcSteady      - Calculate a steady-state periodic operating point before linearization? [unused if Linearize=False] (flag)

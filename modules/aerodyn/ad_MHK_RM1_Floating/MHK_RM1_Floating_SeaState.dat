@@ -45,18 +45,18 @@ FALSE            WvSumQTF       - Full summation-frequency  2nd-order wave kinem
              0   CrestXi        - X-position of the crest (m) [unused when ConstWaveMod=0]
              0   CrestYi        - Y-position of the crest (m) [unused when ConstWaveMod=0]
 ---------------------- CURRENT ------------------------------------------------- [unused with WaveMod=6]
-             1   CurrMod        - Current profile model {0: none=no current, 1: standard, 2: user-defined from routine UserCurrent} (switch)
+             0   CurrMod        - Current profile model {0: none=no current, 1: standard, 2: user-defined from routine UserCurrent} (switch)
              0   CurrSSV0       - Sub-surface current velocity at still water level  (m/s) [used only when CurrMod=1]
              0   CurrSSDir      - Sub-surface current heading direction (degrees) or DEFAULT (string) [used only when CurrMod=1]
-          12.2   CurrNSRef      - Near-surface current reference depth            (meters) [used only when CurrMod=1]
+             0   CurrNSRef      - Near-surface current reference depth            (meters) [used only when CurrMod=1]
              0   CurrNSV0       - Near-surface current velocity at still water level (m/s) [used only when CurrMod=1]
              0   CurrNSDir      - Near-surface current heading direction         (degrees) [used only when CurrMod=1]
-           1.9   CurrDIV        - Depth-independent current velocity                 (m/s) [used only when CurrMod=1]
+             0   CurrDIV        - Depth-independent current velocity                 (m/s) [used only when CurrMod=1]
              0   CurrDIDir      - Depth-independent current heading direction    (degrees) [used only when CurrMod=1]
 ---------------------- MacCamy-Fuchs diffraction model -------------------------
              0   MCFD           - MacCamy-Fuchs member radius (ignored if radius <= 0) [must be 0 when WaveMod 0 or 6] 
 ---------------------- OUTPUT --------------------------------------------------
-True             SeaStSum       - Output a summary file [flag]
+False            SeaStSum       - Output a summary file [flag]
              2   OutSwtch       - Output requested channels to: [1=SeaState.out, 2=GlueCode.out, 3=both files]
 "E15.7e2"        OutFmt         - Output format for numerical results (quoted string) [not checked for validity!]
 "A11"            OutSFmt        - Output format for header strings (quoted string) [not checked for validity!]
